@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - PinGo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #324a66; 
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 70px;
+            height: auto;
+        }
+        h1 {
+            color: #f0f0f0
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin-left: auto;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #324a66;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .profile-picture {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-info h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .user-info p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        .user-content {
+            padding: 20px;
+        }
+
+        .user-content h2 {
+            margin-bottom: 10px;
+            color: #324a66;
+        }
+
+        .user-content p {
+            color: #333;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="H:\PinGo\Resources\Screenshot 2024-01-05 172712.png" alt="Logo">
+        </div>
+        <h1>PinGo</h1>
+        <nav>
+            <a href="home_page.html" id="home">Home</a>
+            <a href="search_page.html" id="search">Search</a>
+            <a href="chat_page.html" id="messages">Messages</a>
+            <a href="profile_page.html" id="account">My Profile</a>
+            <a href="login_page.html" id="login">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-picture">
+                <img src="H:\PinGo\Resources\alex-blajan-555033-unsplash.jpg" alt="Profile Picture">
+            </div>
+            <div class="user-info">
+                <h1>Username1</h1>
+            </div>
+        </div>
+
+        <div class="user-content">
+            <h2>My Pins</h2>
+            <div class="grid" id="pin-container">
+                <div class="card">
+                    <img src="H:\PinGo\Resources\frankie-38297 - Copy.jpg" alt="Placeholder Image">
+                    <div class="card-content">
+                        <p>Card Content</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="H:\PinGo\Resources\karsten-wurth-126084.jpg" alt="Placeholder Image">
+                    <div class="card-content">
+                        <p>Card Content</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="H:\PinGo\Resources\herson-rodriguez-96102.jpg" alt="Placeholder Image">
+                    <div class="card-content">
+                        <p>Card Content</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="H:\PinGo\Resources\giovanni-calia-796.jpg" alt="Placeholder Image">
+                    <div class="card-content">
+                        <p>Card Content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

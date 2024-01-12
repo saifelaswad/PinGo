@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #324a66; 
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            width: 70px;
+            height: auto;
+        }
+        h1 {
+            color: #f0f0f0
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            margin-left: auto;
+        }
+
+        nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #fff; 
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .message-list, .message-panel {
+            flex: 1;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h2 {
+            background-color: #324a66;
+            color: #fff;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .messages {
+            padding: 15px;
+            overflow-y: auto;
+            height: calc(100vh - 90px);
+        }
+
+        .message {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .message-info {
+            flex: 1;
+        }
+
+        .message-info h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .message-info p {
+            margin: 0;
+            color: #888;
+        }
+
+        .message:hover {
+            background-color: #f9f9f9;
+        }
+
+        .panel-header, .chat-input {
+            background-color: #324a66;
+            color: #fff;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .message-content {
+            display: inline-block;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .chat-input button {
+            background-color: #324a66;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="H:\PinGo\Resources\Screenshot 2024-01-05 172712.png" alt="Logo">
+        </div>
+        <h1>PinGo</h1>
+        <nav>
+            <a href="home_page.html" id="home">Home</a>
+            <a href="search_page.html" id="search">Search</a>
+            <a href="chat_page.html" id="messages">Messages</a>
+            <a href="profile_page.html" id="account">My Profile</a>
+            <a href="login_page.html" id="login">Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="message-list">
+            <h2>Messages</h2>
+            <div class="messages" id="message-list">
+                <div class="message" onclick="loadChat('User113')">
+                    <img src="H:\PinGo\Resources\ryan-holloway-351140-unsplash.jpg" alt="User Image">
+                    <div class="message-info">
+                        <h3>Username113</h3>
+                        <p>Read message</p>
+                    </div>
+                </div>
+                <div class="message" onclick="loadChat('User145')">
+                    <img src="H:\PinGo\Resources\Screenshot (18).png" alt="User Image">
+                    <div class="message-info">
+                        <h3>Username145</h3>
+                        <p>Unread message</p>
+                    </div>
+                </div>
+                <div class="message" onclick="loadChat('User203')">
+                    <img src="H:\PinGo\Resources\angello-lopez-138917-unsplash.jpg" alt="User Image">
+                    <div class="message-info">
+                        <h3>Username203</h3>
+                        <p>Unread message</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-panel">
+            <h2 class="panel-header" id="chat-username">Select a chat</h2>
+            <div class="messages" id="chat-messages">
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chat-text" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadChat(username) {
+            // Simulating asynchronous loading of chat messages
+            setTimeout(() => {
+                document.getElementById('chat-username').innerText = username;
+                document.getElementById('chat-messages').innerHTML = `
+                    <div class="message">
+                        <img src="H:\PinGo\Resources\ryan-holloway-351140-unsplash.jpg" alt="User Image">
+                        <div class="message-content">
+                            <p>Hello ${username}! How are you?</p>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <img src="H:\PinGo\Resources\ryan-holloway-351140-unsplash.jpg" alt="User Image">
+                        <div class="message-content">
+                            <p>Thanks! I'm doing fine. How about you?</p>
+                        </div>
+                    </div>
+                `;
+            }, 500); // a delay of 500ms
+        }
+
+        function sendMessage() {
+            var messageText = document.getElementById('chat-text').value;
+            if (messageText.trim() !== '') {
+                var messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                messageDiv.innerHTML = `
+                    <img src="H:\PinGo\Resources\alex-blajan-555033-unsplash.jpg" alt="User Image">
+                    <div class="message-content">
+                        <p>${messageText}</p>
+                    </div>
+                `;
+                document.getElementById('chat-messages').appendChild(messageDiv);
+                document.getElementById('chat-text').value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
